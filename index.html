@@ -21,6 +21,11 @@
   --parchment: #FCF5E5;
   --text-ruby: #1a0505;
   --text-sepia: #4a3728;
+  --text-mid: #6b4f4f;
+  --gold: #D4AF37;
+  --gold-light: #F3E5AB;
+  --deep-red: #8B0000;
+  --cream-dark: #E5D9B6;
   --shadow-gold: rgba(212, 175, 55, 0.3);
   --shadow-ruby: rgba(44, 0, 0, 0.5);
   --section-bg: #fffcf5;
@@ -609,6 +614,16 @@ body {
   background: rgba(255,255,255,0.08);
   box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
 }
+/* Style number input arrows */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
 .rsvp-btn {
   background: linear-gradient(135deg, var(--royal-red), var(--vermilion));
   border: 1px solid var(--gold-leaf);
@@ -648,11 +663,11 @@ body {
   font-family: 'Cinzel Decorative', cursive;
   font-size: 1.2rem;
 }
-#rsvp .section-title { color: var(--gold); text-shadow: 0 0 20px rgba(201,148,42,0.3); }
-#rsvp .section-subtitle { color: var(--cream-dark); }
-#rsvp .gold-divider span { color: var(--gold-light); }
-#rsvp .gold-divider::before { background: linear-gradient(90deg, transparent, var(--gold-light)); }
-#rsvp .gold-divider::after { background: linear-gradient(90deg, var(--gold-light), transparent); }
+#rsvp .section-title { color: var(--gold-bright); text-shadow: 0 0 20px rgba(255,215,0,0.3); }
+#rsvp .section-subtitle { color: var(--gold-pale); opacity: 1; }
+#rsvp .gold-divider span { color: var(--gold-bright); }
+#rsvp .gold-divider::before { background: linear-gradient(90deg, transparent, var(--gold-bright)); }
+#rsvp .gold-divider::after { background: linear-gradient(90deg, var(--gold-bright), transparent); }
 
 /* ===================================================================
    6. DETAILS SECTION
@@ -739,9 +754,9 @@ body {
 .time-number {
   font-family: 'Cinzel Decorative', cursive;
   font-size: clamp(2.8rem, 7vw, 5rem);
-  color: var(--gold);
+  color: var(--gold-bright);
   line-height: 1;
-  text-shadow: 0 0 20px rgba(201,148,42,0.6);
+  text-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
   min-width: clamp(80px, 12vw, 110px);
   text-align: center;
   transition: transform 0.2s;
@@ -825,8 +840,36 @@ body {
 /* ===== RESPONSIVE TWEAKS ===== */
 @media (max-width: 600px) {
   .events-grid { grid-template-columns: 1fr; }
-  .details-grid { grid-template-columns: 1fr 1fr; }
+  .details-grid { grid-template-columns: 1fr; }
   .invite-card { padding: 2rem 1.5rem; }
+  
+  /* Couple Section Mobile Tweak */
+  .couple-wrapper {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .couple-center {
+    order: 2; /* Move heart symbols between cards if desired, but 1-2-3 is fine too */
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+  }
+  .couple-center-divider {
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .couple-symbol {
+    font-size: 2.5rem;
+  }
+  .person-card.reveal-right {
+    order: 3;
+  }
+  .person-card {
+    text-align: center;
+    max-width: 400px;
+    margin: 0 auto;
+  }
 }
 @media (max-width: 400px) {
   .details-grid { grid-template-columns: 1fr; }
@@ -853,8 +896,44 @@ body {
     <div class="hero-bg-pattern"></div>
   </div>
 
+  <!-- Layer 1.5: High-Definition Temple Gopuram (4K Detail, Dark & Clear) -->
+  <div class="hero-layer hero-layer-temple" data-speed="0.15" style="z-index: 1.5; opacity: 0.4;">
+    <svg viewBox="0 0 1000 1200" xmlns="http://www.w3.org/2000/svg" style="width: 85%; height: auto; transform: translateY(8%);">
+      <defs>
+        <linearGradient id="templeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" style="stop-color:#0f0c29;stop-opacity:1" /> <!-- Ultra Dark Midnight Blue -->
+          <stop offset="100%" style="stop-color:var(--deep-ruby);stop-opacity:0" />
+        </linearGradient>
+      </defs>
+      <!-- Detailed Pyramid Structure -->
+      <path d="M100 1200 L900 1200 L850 1050 L150 1050 Z" fill="url(#templeGrad)"/>
+      <path d="M160 1050 L840 1050 L800 920 L200 920 Z" fill="url(#templeGrad)"/>
+      <path d="M210 920 L790 920 L750 810 L250 810 Z" fill="url(#templeGrad)"/>
+      <path d="M260 810 L740 810 L700 710 L300 710 Z" fill="url(#templeGrad)"/>
+      <path d="M310 710 L690 710 L660 620 L340 620 Z" fill="url(#templeGrad)"/>
+      <path d="M350 620 L650 620 L620 540 L380 540 Z" fill="url(#templeGrad)"/>
+      <path d="M390 540 L610 540 L590 470 L410 470 Z" fill="url(#templeGrad)"/>
+      <path d="M420 470 L580 470 L560 410 L440 410 Z" fill="url(#templeGrad)"/>
+      <!-- Topmost Crown -->
+      <path d="M455 410 L545 410 L530 380 L470 380 Z" fill="#0f0c29"/>
+      
+      <!-- High-Definition Accents (Pillars & Ornaments) -->
+      <g stroke="rgba(212, 175, 55, 0.4)" stroke-width="1" fill="none">
+        <path d="M200 1050 L200 1200 M400 1050 L400 1200 M600 1050 L600 1200 M800 1050 L800 1200"/>
+        <path d="M250 920 L250 1050 M500 920 L500 1050 M750 920 L750 1050"/>
+        <path d="M300 810 L300 920 M500 810 L500 920 M700 810 L700 920"/>
+        <path d="M350 710 L350 810 M500 710 L500 810 M650 710 L650 810"/>
+      </g>
+      
+      <!-- Glowing Kalashas -->
+      <circle cx="475" cy="370" r="5" fill="#ffd700" style="filter: drop-shadow(0 0 5px #ffd700);"/>
+      <circle cx="500" cy="365" r="7" fill="#ffd700" style="filter: drop-shadow(0 0 8px #ffd700);"/>
+      <circle cx="525" cy="370" r="5" fill="#ffd700" style="filter: drop-shadow(0 0 5px #ffd700);"/>
+    </svg>
+  </div>
+
   <!-- Layer 2: Midground Decor (Corners and Hanging Bells) -->
-  <div class="hero-layer hero-layer-2" data-speed="0.5">
+  <div class="hero-layer hero-layer-2" data-speed="0.4">
     <div class="decor-hanging">
       <div class="marigold-string" style="height: 250px;"></div>
       <div class="marigold-string" style="height: 400px;"></div>
@@ -888,8 +967,8 @@ body {
     </svg>
   </div>
 
-  <!-- Layer 3: Main Content -->
-  <div class="hero-layer hero-layer-3" data-speed="1.0">
+  <!-- Layer 3: Main Content (IDLE - Speed set to 0) -->
+  <div class="hero-layer hero-layer-3" data-speed="0">
     <div class="hero-content">
       <div class="hero-save-date">Save the Date</div>
       <div class="hero-om">ॐ</div>
@@ -1100,21 +1179,13 @@ body {
         <label for="rsvp-attending">Will You Be Attending?</label>
         <select id="rsvp-attending">
           <option value="">— Select —</option>
-          <option value="yes-all">Yes, for all events!</option>
-          <option value="yes-wedding">Yes, for the Wedding</option>
-          <option value="yes-partial">Yes, for some events</option>
+          <option value="yes">Yes, I'll be there!</option>
           <option value="no">Regretfully, no</option>
         </select>
       </div>
       <div class="form-group">
         <label for="rsvp-guests">Number of Guests</label>
-        <select id="rsvp-guests">
-          <option value="1">Just me (1)</option>
-          <option value="2">2 guests</option>
-          <option value="3">3 guests</option>
-          <option value="4">4 guests</option>
-          <option value="5+">5 or more</option>
-        </select>
+        <input type="number" id="rsvp-guests" min="1" max="10" value="1">
       </div>
       <button class="rsvp-btn" onclick="submitRSVP()">Confirm My RSVP ✦</button>
 
@@ -1318,13 +1389,15 @@ function updateParallax() {
     const isMobile = window.innerWidth < 768;
     
     heroLayers.forEach(layer => {
-        const speed = parseFloat(layer.getAttribute('data-speed')) || 0;
+        let speed = parseFloat(layer.getAttribute('data-speed')) || 0;
+        if (isMobile) speed *= 0.5; // Reduce intensity on mobile
+        
         const yPos = -(scrollY * speed);
         
         // Use translate3d for hardware acceleration
-        if (speed === 1.0) {
+        if (speed === (isMobile ? 0.5 : 1.0)) {
             // Main content - slow slightly but stay relatively central
-            layer.style.transform = `translate3d(0, ${scrollY * 0.2}px, 0)`;
+            layer.style.transform = `translate3d(0, ${scrollY * 0.1}px, 0)`;
         } else {
             layer.style.transform = `translate3d(0, ${yPos}px, 0)`;
         }
@@ -1446,64 +1519,41 @@ setInterval(updateCountdown, 1000);
     window.addEventListener('resize', resize);
     draw();
 })();
+</script>
 
-/* ===== MUSIC TOGGLE (Enhanced) ===== */
-let audioCtx = null;
-let musicPlaying = false;
-let oscillators = [];
+<!-- AUDIO ELEMENT -->
+<audio id="bg-music" loop>
+    <source src="tum%20tum.mpeg" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+<script>
+/* ===== MUSIC TOGGLE (Updated for File Playback) ===== */
 const musicBtn = document.getElementById('music-btn');
+const audio = document.getElementById('bg-music');
+let isInitialPlay = true;
 
-function createNadaMusic() {
-    if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    
-    const notes = [261.63, 293.66, 329.63, 349.23, 392.00, 440.00, 493.88, 523.25]; // C Major
-    const melody = [0, 4, 7, 4, 5, 2, 0, 4, 7, 9, 7, 4, 11, 7, 4, 0];
-    let noteIndex = 0;
-    
-    function playNote() {
-        if (!musicPlaying) return;
-        
-        const osc = audioCtx.createOscillator();
-        const gain = audioCtx.createGain();
-        const filter = audioCtx.createBiquadFilter();
-        
-        osc.type = 'triangle';
-        osc.frequency.setValueAtTime(notes[melody[noteIndex % melody.length] % 8], audioCtx.currentTime);
-        
-        filter.type = 'lowpass';
-        filter.frequency.setValueAtTime(1000, audioCtx.currentTime);
-        filter.frequency.exponentialRampToValueAtTime(40, audioCtx.currentTime + 1.5);
-        
-        gain.gain.setValueAtTime(0, audioCtx.currentTime);
-        gain.gain.linearRampToValueAtTime(0.15, audioCtx.currentTime + 0.1);
-        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 2.0);
-        
-        osc.connect(filter);
-        filter.connect(gain);
-        gain.connect(audioCtx.destination);
-        
-        osc.start();
-        osc.stop(audioCtx.currentTime + 2.0);
-        
-        noteIndex++;
-        setTimeout(playNote, 800);
-    }
-    
-    playNote();
-}
-
-if (musicBtn) {
+if (musicBtn && audio) {
     musicBtn.addEventListener('click', () => {
-        musicPlaying = !musicPlaying;
-        if (musicPlaying) {
-            musicBtn.classList.add('playing');
-            createNadaMusic();
+        if (audio.paused) {
+            audio.play().then(() => {
+                musicBtn.classList.add('playing');
+                musicBtn.textContent = '⏸'; // Change icon to pause
+            }).catch(err => {
+                console.log("Playback blocked:", err);
+                alert("Please click anywhere on the page first to allow music playback.");
+            });
         } else {
+            audio.pause();
             musicBtn.classList.remove('playing');
-            if (audioCtx) {
-                audioCtx.close().then(() => { audioCtx = null; });
-            }
+            musicBtn.textContent = '♪'; // Change icon back to music note
         }
+    });
+
+    // Handle audio ending (though it has 'loop' attribute)
+    audio.addEventListener('ended', () => {
+        musicBtn.classList.remove('playing');
+        musicBtn.textContent = '♪';
     });
 }
 
