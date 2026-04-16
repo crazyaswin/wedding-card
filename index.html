@@ -1521,39 +1521,60 @@ setInterval(updateCountdown, 1000);
 })();
 </script>
 
-<!-- AUDIO ELEMENT -->
-<audio id="bg-music" loop>
-    <source src="tum%20tum.mpeg" type="audio/mpeg">
-    Your browser does not support the audio element.
-</audio>
+<!-- YOUTUBE PLAYER (Hidden) -->
+<div id="yt-player" style="display:none;"></div>
 
 <script>
-/* ===== MUSIC TOGGLE (Updated for File Playback) ===== */
-const musicBtn = document.getElementById('music-btn');
-const audio = document.getElementById('bg-music');
-let isInitialPlay = true;
+// Load YouTube Iframe API
+var tag = document.createElement('script');
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-if (musicBtn && audio) {
-    musicBtn.addEventListener('click', () => {
-        if (audio.paused) {
-            audio.play().then(() => {
-                musicBtn.classList.add('playing');
-                musicBtn.textContent = '⏸'; // Change icon to pause
-            }).catch(err => {
-                console.log("Playback blocked:", err);
-                alert("Please click anywhere on the page first to allow music playback.");
-            });
-        } else {
-            audio.pause();
-            musicBtn.classList.remove('playing');
-            musicBtn.textContent = '♪'; // Change icon back to music note
+let player;
+let isYtReady = false;
+
+function onYouTubeIframeAPIReady() {
+    player = new YT.Player('yt-player', {
+        height: '0',
+        width: '0',
+        videoId: 'tYSrY4iPX6w',
+        playerVars: {
+            'autoplay': 0,
+            'controls': 0,
+            'loop': 1,
+            'playlist': 'tYSrY4iPX6w' // Required for looping
+        },
+        events: {
+            'onReady': onPlayerReady
         }
     });
+}
 
-    // Handle audio ending (though it has 'loop' attribute)
-    audio.addEventListener('ended', () => {
-        musicBtn.classList.remove('playing');
-        musicBtn.textContent = '♪';
+function onPlayerReady(event) {
+    isYtReady = true;
+}
+
+/* ===== MUSIC TOGGLE (YouTube API Version) ===== */
+const musicBtn = document.getElementById('music-btn');
+
+if (musicBtn) {
+    musicBtn.addEventListener('click', () => {
+        if (!isYtReady) {
+            console.log("YouTube Player not ready yet.");
+            return;
+        }
+
+        const state = player.getPlayerState();
+        if (state === YT.PlayerState.PLAYING) {
+            player.pauseVideo();
+            musicBtn.classList.remove('playing');
+            musicBtn.textContent = '♪';
+        } else {
+            player.playVideo();
+            musicBtn.classList.add('playing');
+            musicBtn.textContent = '⏸';
+        }
     });
 }
 
@@ -1573,4 +1594,3 @@ window.submitRSVP = function() {
 </script>
 </body>
 </html>
-
