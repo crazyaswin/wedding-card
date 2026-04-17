@@ -39,12 +39,13 @@
 
 /* ===== RESET & BASE ===== */
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior: smooth; font-size: 16px; }
+html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
 body {
   background: var(--ivory-warm);
   color: var(--text-ruby);
   font-family: 'Lora', serif;
   overflow-x: hidden;
+  max-width: 100vw;
 }
 
 /* ===== SCROLL PROGRESS BAR ===== */
@@ -341,12 +342,13 @@ body {
   max-width: 800px; margin: 0 auto;
   background: linear-gradient(135deg, #fff2c4, #ffd700 250%);
   border: 4px solid var(--gold-leaf);
-  padding: clamp(3rem, 8vw, 6rem);
+  padding: clamp(2.5rem, 6vw, 6rem);
   position: relative;
   box-shadow: 0 15px 60px var(--shadow-gold);
   text-align: center;
   z-index: 2;
   border-radius: 8px;
+  overflow: hidden;
 }
 /* Corner ornaments */
 .invite-card::before, .invite-card::after {
@@ -394,6 +396,14 @@ body {
   margin: 2rem 0;
 }
 .invite-parents .parent-group { margin: 1rem 0; }
+.invite-couple-name {
+  font-family: var(--font-names);
+  font-size: clamp(2rem, 8vw, 3.5rem);
+  color: var(--deep-red);
+  line-height: 1.2;
+  font-weight: 400;
+  word-break: break-word;
+}
 .invite-welcome {
   font-family: var(--font-accent);
   font-style: italic;
@@ -861,6 +871,19 @@ input[type=number] {
 }
 
 /* ===== RESPONSIVE TWEAKS ===== */
+@media (max-width: 768px) {
+  .events-grid { grid-template-columns: 1fr 1fr; }
+  .details-grid { grid-template-columns: 1fr 1fr; }
+  .invite-card { padding: 2.5rem 1.5rem; }
+  .hero-names {
+    font-size: clamp(3rem, 13vw, 5rem);
+    white-space: normal;
+    padding: 0 8px;
+    line-height: 1.15;
+  }
+  .hero-date-box { padding: 1rem 2rem; }
+}
+
 @media (max-width: 600px) {
   .events-grid { grid-template-columns: 1fr; }
   .details-grid { grid-template-columns: 1fr; }
@@ -872,7 +895,7 @@ input[type=number] {
     gap: 2rem;
   }
   .couple-center {
-    order: 2; /* Move heart symbols between cards if desired, but 1-2-3 is fine too */
+    order: 2;
     flex-direction: row;
     width: 100%;
     justify-content: center;
@@ -892,6 +915,50 @@ input[type=number] {
     text-align: center;
     max-width: 400px;
     margin: 0 auto;
+  }
+
+  /* Fix for hero name overflow on mobile */
+  .hero-names {
+    font-size: clamp(2.8rem, 12vw, 4.5rem);
+    white-space: normal;
+    line-height: 1.2;
+    padding: 0 10px;
+  }
+  .hero-names .ampersand {
+    display: block;
+    margin: 0.2em auto;
+    font-size: 0.5em;
+  }
+
+  /* Fix for date box on mobile */
+  .hero-date-box {
+    padding: 1rem 1.5rem;
+    width: 85vw;
+  }
+  .hero-date-main {
+    font-size: 1.4rem;
+    letter-spacing: 0.1em;
+  }
+
+  /* Fix for door cover names */
+  .door-welcome-text {
+    font-size: clamp(2.5rem, 10vw, 4rem);
+    text-align: center;
+    padding: 0 20px;
+  }
+  #open-door-btn {
+    padding: 1rem 2rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.2em;
+  }
+
+  /* Fix for invitation card names */
+  .invite-card {
+    padding: 3rem 1.5rem;
+  }
+  .invite-parents div[style*="font-size:3.5rem"] {
+    font-size: 2.2rem !important;
+    line-height: 1.1 !important;
   }
 }
 @media (max-width: 400px) {
@@ -1124,11 +1191,11 @@ input[type=number] {
         <em style="font-family:'Philosopher',serif;font-size:0.9rem;color:var(--text-mid)">proudly announce the wedding of their daughter</em>
       </div>
       <br>
-      <div style="font-family:var(--font-names);font-size:3.5rem;color:var(--deep-red);line-height:1.2;font-weight:400;">Priya Ramachandran</div>
+      <div class="invite-couple-name">Priya Ramachandran</div>
       <br>
       <div style="font-family:'Philosopher',serif;font-style:italic;font-size:1.1rem;color:var(--text-mid)">with</div>
       <br>
-      <div style="font-family:var(--font-names);font-size:3.5rem;color:var(--deep-red);line-height:1.2;font-weight:400;">Arjun Venkataraman</div>
+      <div class="invite-couple-name">Arjun Venkataraman</div>
       <br>
       <div class="parent-group">
         <em style="font-family:'Philosopher',serif;font-size:0.9rem;color:var(--text-mid)">beloved son of</em><br>
