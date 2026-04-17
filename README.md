@@ -1,85 +1,84 @@
-# 🌸 Priya & Arjun — Premium Wedding Invitation
+# 🌸 Priya & Arjun — Ultra-Premium Wedding Invitation
 
-A stunning, high-performance wedding invitation website built with a focus on **South Indian tradition** and **modern luxury aesthetics**. This project features rich animations, 3D parallax effects, and procedural audio.
+A high-fidelity, cinematic wedding invitation experience crafted with **South Indian royal aesthetics** and modern **agency-level visual effects**. This project is designed to "WOW" guests from the first interaction.
 
-![Wedding Theme](https://img.shields.io/badge/Theme-South_Indian_Luxury-800000?style=for-the-badge)
+![Wedding Theme](https://img.shields.io/badge/Theme-South_Indian_Royal_Luxury-800000?style=for-the-badge)
 ![Tech Stack](https://img.shields.io/badge/Tech-HTML5_CSS3_VanillaJS-gold?style=for-the-badge)
+![Quality](https://img.shields.io/badge/Resolution-8K_Ultra_HD-FFD700?style=for-the-badge)
 
 ---
 
-## ✨ Key Features
+## ✨ Premium Features
 
-### 🏺 1. 3D Parallax Hero Section
-Experience a deep, immersive entrance. The hero section uses a 4-layer parallax engine:
-- **Layer 0-1**: Deep glows and subtle temple patterns.
-- **Layer 2**: Midground hanging marigolds and ornamental SVGs.
-- **Layer 3**: Elegant typography with gold gradients.
-- **Layer 4**: Foreground interactive elements.
-*Includes mouse-interactive depth on desktop.*
+### 🚪 1. Palace Door "Grand Entrance"
+Guests are greeted by high-detail palace doors. 
+- **3D Interaction**: Doors swing open with a realistic 3D perspective shift.
+- **Glassmorphism UI**: A premium, blurred-glass "Open Invitation" button with soft pulse animations.
+- **Atmospheric Reveal**: A golden light flash spills through as the doors open, transitioning into the main invitation.
 
-### ⏳ 2. Celestial Countdown
-A mystical countdown timer set against a **Canvas-rendered starry night sky**.
-- Real-time ticking with "pulse" animations.
-- Procedural stars that twinkle and drift.
-- Automatically transitions to a "Wedding Begun" state.
+### 🏺 2. 8K Ultra-HD Parallax Temple
+The center of the hero section features a meticulously crafted golden temple.
+- **8K Resolution**: Upscaled and sharpened for razor-sharp detail on any screen size.
+- **Isolated Depth**: Background-free temple layer allows it to float naturally over the page background.
+- **Dynamic Panning**: As you scroll, the camera pans from the grand *Gopuram* top down to the sacred entrance.
 
-### 🎵 3. Procedural "Nada" Music
-Rather than heavy MP3 files, this site uses the **Web Audio API** to generate a calming, meditative melody in real-time.
-- Low performance overhead.
-- Instant toggle with pulse animation.
+### 📜 3. Cinematic Typography
+- **Pinyon Script**: An ultra-elegant, hand-lettered cursive font for a high-end studio feel.
+- **Metallic Shine**: Couple's names feature a custom CSS gradient and "halo" glow for maximum clarity and depth over complex imagery.
+- **Tamil Heritage**: Integration of *Noto Serif Tamil* for a traditional touch.
 
-### 📋 4. Smart RSVP System
-- Minimalist glassmorphic form.
-- Instant validation and success animations.
-- **One-click WhatsApp integration** for guests to RSVP directly to the couple.
+### 🤝 4. "Expectation" Parallax Footer
+The journey ends with a stunning portrait of the couple's hands in traditional attire.
+- **High-Fidelity Imagery**: A studio-format photograph at the base of the page.
+- **Smooth Parallax**: The image moves at a different speed than the text for a deep, cinematic finish.
 
-### 🎭 5. Premium Motion Design
-- **Reveal-on-Scroll**: Smooth transitions using `IntersectionObserver`.
-- **Gold-Leaf Accents**: Custom SVG ornaments and temple silhouettes.
-- **Typography**: A curated blend of *Cinzel Decorative*, *Lora*, and *Noto Serif Tamil*.
+### 📋 5. Golden Rosewood RSVP & Details
+The entire UI has been reskinned with a **Rosewood and Gold** palette.
+- **Glassmorphic RSVP**: A semi-transparent dark rosewood box with blurred backdrops.
+- **WhatsApp Integration**: Immediate confirmation directly to the couple's phone.
 
 ---
 
-## 🎨 Color Palette
+## 🎨 Creative Design System
 
-| Color | Hex | Role |
-| :--- | :--- | :--- |
-| **Deep Ruby** | `#2C0000` | Backgrounds & Luxury depth |
-| **Royal Red** | `#5A0001` | Section Headings |
-| **Gold Leaf** | `#D4AF37` | Ornaments & Accents |
-| **Ivory Warm** | `#FFF9E3` | Main background & Contrast |
-| **Vermilion** | `#C0392B` | Highlights & Sacred text |
+| Element | Specification |
+| :--- | :--- |
+| **Primary Color** | `Deep Ruby (#2C0000)` & `Royal Red (#5A0001)` |
+| **Accent Color** | `Gold Antique (#B38B2D)` & `Gold Bright (#FFD700)` |
+| **Background** | `Ivory Warm (#FFF9E3)` — for a premium parchment feel |
+| **Font (Names)** | `Pinyon Script` — High-luxury cursive |
+| **Font (Body)** | `Lora` & `Philosopher` — Sophisticated serif |
 
 ---
 
-## 🛠️ Customization Guide
+## 🛠️ Configuration & Setup
 
-### 1. Update Names & Date
-Find the `index.html` file and search for:
-- `Priya & Arjun` -> Replace with your names.
-- `August 24, 2026` -> Update the hero display date.
-- `const weddingDate = new Date('2026-08-24T10:30:00+05:30');` -> Update the JS timer logic.
+### 1. Update Personal Details
+Edit `index.html`:
+- **Names**: Search and replace `Priya` and `Arjun`.
+- **Date**: Update `AUGUST 24, 2026` in the text and the JS countdown:
+  ```javascript
+  const weddingDate = new Date('2026-08-24T10:30:00+05:30');
+  ```
 
-### 2. Configure RSVP
-Update the WhatsApp link in the RSVP section:
+### 2. Music Configuration
+The background music is powered by a hidden YouTube player for high-quality audio:
+- Search for `tYSrY4iPX6w` in `index.html` and replace it with your preferred YouTube video ID.
+
+### 3. RSVP Redirection
+Set your phone number for the WhatsApp buttons:
 ```html
-<a href="https://wa.me/YOUR_PHONE_NUMBER?text=Hello!..."
+<a href="https://wa.me/YOUR_NUMBER?text=..."
 ```
 
-### 3. Change Assets
-- **Photos**: Replace the `photo-placeholder-icon` in the `#couple` section with `<img>` tags for your own portraits.
-- **Fonts**: The project pulls from Google Fonts. You can swap them in the `<link>` section in `<head>`.
+---
+
+## 🚀 Optimized for Performance
+- **Zero Dependencies**: Pure HTML, CSS, and Vanilla JS.
+- **Hardware-Accelerated**: Parallax and 3D transforms use `translate3d` for 60FPS smoothness.
+- **Mobile First**: Fully responsive layouts for guest viewing on smartphones.
 
 ---
 
-## 🚀 Deployment
-
-Since this is a vanilla HTML/CSS project, it can be deployed anywhere:
-- **GitHub Pages**: Perfect for easy hosting.
-- **Netlify/Vercel**: Drag and drop the folder.
-- **Shared Hosting**: Upload via FTP.
-
----
-
-## 📜 License
-*Custom crafted for Priya & Arjun's special day. All rights reserved.*
+## 📜 Credits & License
+*Exclusively designed for the union of Priya and Arjun. A masterpiece of digital tradition.*
