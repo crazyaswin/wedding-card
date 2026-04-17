@@ -881,6 +881,10 @@ input[type=number] {
     padding: 0 8px;
     line-height: 1.15;
   }
+  .hero-names .ampersand {
+    display: block;
+    margin: 0.1em auto;
+  }
   .hero-date-box { padding: 1rem 2rem; }
 }
 
@@ -919,15 +923,15 @@ input[type=number] {
 
   /* Fix for hero name overflow on mobile */
   .hero-names {
-    font-size: clamp(2.8rem, 12vw, 4.5rem);
+    font-size: clamp(2.5rem, 11vw, 4.5rem);
     white-space: normal;
     line-height: 1.2;
-    padding: 0 10px;
+    padding: 0;
   }
   .hero-names .ampersand {
     display: block;
     margin: 0.2em auto;
-    font-size: 0.5em;
+    font-size: 0.4em;
   }
 
   /* Fix for date box on mobile */
@@ -954,7 +958,12 @@ input[type=number] {
 
   /* Fix for invitation card names */
   .invite-card {
-    padding: 3rem 1.5rem;
+    padding: 3rem 1.0rem;
+  }
+  .invite-couple-name {
+    font-size: clamp(1.6rem, 10vw, 2.8rem);
+    word-break: normal;
+    overflow-wrap: break-word;
   }
   .invite-parents div[style*="font-size:3.5rem"] {
     font-size: 2.2rem !important;
