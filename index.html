@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;500;600;700&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Serif+Tamil:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Pinyon+Script&display=swap" rel="stylesheet">
 <style>
 /* ===== CSS VARIABLES ===== */
 :root {
@@ -33,6 +34,7 @@
   --font-subheading: 'Cinzel', serif;
   --font-body: 'Lora', serif;
   --font-accent: 'Philosopher', serif;
+  --font-names: 'Pinyon Script', cursive;
 }
 
 /* ===== RESET & BASE ===== */
@@ -129,7 +131,7 @@ body {
   height: 100vh;
   display: flex; align-items: center; justify-content: center;
   overflow: hidden;
-  background: var(--deep-ruby);
+  background: var(--ivory-warm);
   perspective: 1000px; /* Foundation for 3D depth */
 }
 
@@ -154,8 +156,8 @@ body {
 /* Specific components for layers */
 .hero-glow {
   width: 100%; height: 100%;
-  background: radial-gradient(circle at 50% 40%, #6b0d0d 0%, var(--deep-ruby) 70%);
-  opacity: 0.8;
+  background: radial-gradient(circle at 50% 40%, var(--gold-pale) 0%, var(--ivory-warm) 70%);
+  opacity: 0.5;
 }
 
 .hero-bg-pattern {
@@ -221,53 +223,72 @@ body {
   font-family: var(--font-subheading);
   font-size: clamp(0.75rem, 2vw, 1rem);
   letter-spacing: 0.5em;
-  color: var(--gold-pale);
+  color: var(--royal-red);
   text-transform: uppercase;
   margin-bottom: 2rem;
   opacity: 0.8;
 }
 .hero-om {
   font-size: clamp(2.5rem, 6vw, 4rem);
-  color: var(--gold-bright);
+  color: var(--gold-antique);
   margin-bottom: 0.8rem;
-  filter: drop-shadow(0 0 15px var(--gold-leaf));
+  filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3));
 }
 
 .hero-names {
-  font-family: var(--font-heading);
-  font-size: clamp(2rem, 8vw, 6.5rem);
+  font-family: var(--font-names);
+  font-size: clamp(4.5rem, 14vw, 9.5rem);
   white-space: nowrap;
-  color: var(--ivory-warm);
-  line-height: 1.2;
-  letter-spacing: -0.01em;
-  background: linear-gradient(to bottom, #fff, var(--gold-pale));
+  color: var(--deep-red);
+  line-height: 1.1;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  background: linear-gradient(
+    to bottom,
+    var(--royal-red) 0%,
+    var(--deep-red) 50%,
+    var(--deep-ruby) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  filter: drop-shadow(2px 4px 10px rgba(0,0,0,0.5));
+  /* Premium drop shadow with a soft glow to separate from temple details */
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4)) 
+          drop-shadow(0 0 20px rgba(255,255,255,0.6));
+  animation: nameFadeIn 1.5s ease-out forwards;
 }
+
+@keyframes nameFadeIn {
+  from { opacity: 0; transform: translateY(20px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
 .hero-names .ampersand {
   display: inline-block;
   font-family: var(--font-accent);
   font-style: italic;
-  font-size: 0.45em;
-  color: var(--gold-leaf);
-  margin: 0.1em 0.3em;
-  -webkit-text-fill-color: var(--gold-leaf);
+  font-size: 0.4em;
+  color: var(--royal-red);
+  margin: 0.1em 0.5em;
+  -webkit-text-fill-color: var(--royal-red);
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(255,255,255,0.9);
+  vertical-align: middle;
 }
 .hero-date-box {
   margin: 3rem auto 0;
   display: inline-flex; flex-direction: column; align-items: center;
-  border: 1px solid rgba(212, 175, 55, 0.4);
+  border: 1px solid rgba(212, 175, 55, 0.5);
   padding: 1.2rem 3.5rem;
   position: relative;
-  background: rgba(44, 0, 0, 0.3);
-  -webkit-backdrop-filter: blur(5px);
-  backdrop-filter: blur(5px);
+  background: rgba(85, 20, 20, 0.85); /* Golden Rosewood tone */
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
 }
 .hero-date-box::before, .hero-date-box::after {
   content: ''; position: absolute;
   width: 15px; height: 15px;
-  border: 2px solid var(--gold-leaf);
+  border: 2px solid var(--gold-antique);
 }
 .hero-date-box::before { top: -2px; left: -2px; border-right: none; border-bottom: none; }
 .hero-date-box::after { bottom: -2px; right: -2px; border-left: none; border-top: none; }
@@ -275,6 +296,7 @@ body {
   font-family: var(--font-subheading);
   font-size: clamp(1.4rem, 4vw, 2.2rem);
   color: var(--gold-bright);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
   letter-spacing: 0.2em;
 }
 .hero-date-sub {
@@ -289,7 +311,7 @@ body {
 .hero-scroll-hint {
   position: absolute; bottom: 2rem; left: 50%;
   transform: translateX(-50%);
-  color: var(--gold-pale); font-size: 0.75rem;
+  color: var(--royal-red); font-size: 0.75rem;
   letter-spacing: 0.3em; text-transform: uppercase;
   font-family: 'Cinzel', serif;
   animation: bounceDown 2s infinite;
@@ -304,7 +326,7 @@ body {
    2. INVITATION MESSAGE
 =================================================================== */
 #invitation {
-  background: var(--section-bg);
+  background: #fffaee;
   padding: 8rem 2rem;
   position: relative;
   overflow: hidden;
@@ -317,13 +339,14 @@ body {
 }
 .invite-card {
   max-width: 800px; margin: 0 auto;
-  background: var(--ivory-warm);
-  border: 1px solid var(--gold-pale);
+  background: linear-gradient(135deg, #fff2c4, #ffd700 250%);
+  border: 4px solid var(--gold-leaf);
   padding: clamp(3rem, 8vw, 6rem);
   position: relative;
-  box-shadow: 0 15px 60px rgba(44,0,0,0.08);
+  box-shadow: 0 15px 60px var(--shadow-gold);
   text-align: center;
   z-index: 2;
+  border-radius: 8px;
 }
 /* Corner ornaments */
 .invite-card::before, .invite-card::after {
@@ -874,9 +897,127 @@ input[type=number] {
 @media (max-width: 400px) {
   .details-grid { grid-template-columns: 1fr; }
 }
+
+/* ===== NEW DOOR CONCEPT ===== */
+#door-cover {
+  position: fixed; inset: 0; z-index: 10000;
+  display: flex; align-items: center; justify-content: center;
+  background: #111; overflow: hidden;
+  transition: opacity 1.5s ease 0.5s, visibility 1.5s ease 0.5s;
+}
+.door-left, .door-right {
+  position: absolute; top:0; width: 50%; height: 100%;
+  background-size: 200% 100%;
+  transition: transform 2s cubic-bezier(0.77, 0, 0.175, 1);
+  background-repeat: no-repeat;
+  will-change: transform;
+}
+.door-left { left: 0; transform-origin: left; background-position: left center; }
+.door-right { right: 0; transform-origin: right; background-position: right center; }
+
+#door-cover.open .door-left { transform: perspective(1200px) rotateY(-90deg); }
+#door-cover.open .door-right { transform: perspective(1200px) rotateY(90deg); }
+#door-cover.hide { opacity: 0; visibility: hidden; pointer-events: none; }
+
+/* Premium Entrance Content */
+.door-enter-content {
+  position: relative; z-index: 10001;
+  display: flex; flex-direction: column; align-items: center;
+  gap: 2rem;
+  transition: opacity 0.8s ease;
+}
+.door-welcome-text {
+  font-family: var(--font-names);
+  font-size: clamp(3.5rem, 8vw, 6rem);
+  color: #ffffff;
+  text-shadow: 0 5px 25px rgba(0,0,0,0.9), 0 2px 10px rgba(0,0,0,0.8);
+  letter-spacing: 0.03em;
+  opacity: 0.95;
+  filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.4));
+  transition: opacity 0.5s, transform 0.5s;
+}
+#open-door-btn {
+  padding: 1.2rem 4rem; font-size: 1.1rem;
+  background: rgba(20, 0, 0, 0.65);
+  color: var(--gold-bright);
+  border: 1px solid rgba(212, 175, 55, 0.6); 
+  cursor: pointer;
+  font-family: var(--font-subheading); text-transform: uppercase;
+  letter-spacing: 0.4em; font-weight: 300;
+  transition: all 0.5s ease; 
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6), inset 0 0 20px rgba(212, 175, 55, 0.15);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-radius: 3px;
+  animation: etherealPulse 3s infinite alternate;
+}
+#open-door-btn:hover {
+  background: rgba(40, 0, 0, 0.8); 
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.8), inset 0 0 30px rgba(212, 175, 55, 0.3);
+  color: #ffffff;
+  border-color: var(--gold-bright);
+  letter-spacing: 0.45em;
+}
+#open-door-btn.fade-out, .door-welcome-text.fade-out {
+  opacity: 0; transform: scale(0.8); pointer-events: none;
+}
+@keyframes etherealPulse {
+  0% { box-shadow: 0 10px 30px rgba(0,0,0,0.6), inset 0 0 20px rgba(212, 175, 55, 0.15), 0 0 0 rgba(212, 175, 55, 0); }
+  100% { box-shadow: 0 10px 30px rgba(0,0,0,0.6), inset 0 0 20px rgba(212, 175, 55, 0.25), 0 0 15px rgba(212, 175, 55, 0.3); }
+}
+
+/* ===== END PARALLAX SECTION ===== */
+#thank-you-parallax {
+  position: relative;
+  height: 80vh;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.ty-bg {
+  position: absolute; inset: 0;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  z-index: 0;
+}
+.ty-bg::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(44,0,0,0.2), rgba(44,0,0,0.8));
+}
+.ty-content {
+  position: relative; z-index: 1; text-align: center;
+  padding: 2rem;
+}
+.ty-content h2 {
+  font-family: var(--font-names);
+  font-size: clamp(4rem, 10vw, 7rem);
+  color: #fff;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.6);
+  margin-bottom: 1rem;
+  font-weight: 400;
+}
+.ty-content p {
+  font-family: var(--font-subheading);
+  font-size: clamp(1rem, 3vw, 1.8rem);
+  color: var(--gold-pale);
+  letter-spacing: 0.1em;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+}
 </style>
 </head>
 <body>
+
+<!-- DOOR COVER CONCEPT -->
+<div id="door-cover">
+  <div class="door-left" style="background-image: url('assets/palace_door.png');"></div>
+  <div class="door-right" style="background-image: url('assets/palace_door.png');"></div>
+  
+  <div class="door-enter-content" id="door-btn-wrapper">
+    <div class="door-welcome-text" id="door-welcome-text">Priya & Arjun</div>
+    <button id="open-door-btn">Open Invitation</button>
+  </div>
+</div>
 
 <!-- SCROLL PROGRESS BAR -->
 <div id="progress-bar"></div>
@@ -896,40 +1037,9 @@ input[type=number] {
     <div class="hero-bg-pattern"></div>
   </div>
 
-  <!-- Layer 1.5: High-Definition Temple Gopuram (4K Detail, Dark & Clear) -->
-  <div class="hero-layer hero-layer-temple" data-speed="0.15" style="z-index: 1.5; opacity: 0.4;">
-    <svg viewBox="0 0 1000 1200" xmlns="http://www.w3.org/2000/svg" style="width: 85%; height: auto; transform: translateY(8%);">
-      <defs>
-        <linearGradient id="templeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" style="stop-color:#0f0c29;stop-opacity:1" /> <!-- Ultra Dark Midnight Blue -->
-          <stop offset="100%" style="stop-color:var(--deep-ruby);stop-opacity:0" />
-        </linearGradient>
-      </defs>
-      <!-- Detailed Pyramid Structure -->
-      <path d="M100 1200 L900 1200 L850 1050 L150 1050 Z" fill="url(#templeGrad)"/>
-      <path d="M160 1050 L840 1050 L800 920 L200 920 Z" fill="url(#templeGrad)"/>
-      <path d="M210 920 L790 920 L750 810 L250 810 Z" fill="url(#templeGrad)"/>
-      <path d="M260 810 L740 810 L700 710 L300 710 Z" fill="url(#templeGrad)"/>
-      <path d="M310 710 L690 710 L660 620 L340 620 Z" fill="url(#templeGrad)"/>
-      <path d="M350 620 L650 620 L620 540 L380 540 Z" fill="url(#templeGrad)"/>
-      <path d="M390 540 L610 540 L590 470 L410 470 Z" fill="url(#templeGrad)"/>
-      <path d="M420 470 L580 470 L560 410 L440 410 Z" fill="url(#templeGrad)"/>
-      <!-- Topmost Crown -->
-      <path d="M455 410 L545 410 L530 380 L470 380 Z" fill="#0f0c29"/>
-      
-      <!-- High-Definition Accents (Pillars & Ornaments) -->
-      <g stroke="rgba(212, 175, 55, 0.4)" stroke-width="1" fill="none">
-        <path d="M200 1050 L200 1200 M400 1050 L400 1200 M600 1050 L600 1200 M800 1050 L800 1200"/>
-        <path d="M250 920 L250 1050 M500 920 L500 1050 M750 920 L750 1050"/>
-        <path d="M300 810 L300 920 M500 810 L500 920 M700 810 L700 920"/>
-        <path d="M350 710 L350 810 M500 710 L500 810 M650 710 L650 810"/>
-      </g>
-      
-      <!-- Glowing Kalashas -->
-      <circle cx="475" cy="370" r="5" fill="#ffd700" style="filter: drop-shadow(0 0 5px #ffd700);"/>
-      <circle cx="500" cy="365" r="7" fill="#ffd700" style="filter: drop-shadow(0 0 8px #ffd700);"/>
-      <circle cx="525" cy="370" r="5" fill="#ffd700" style="filter: drop-shadow(0 0 5px #ffd700);"/>
-    </svg>
+  <!-- Layer 1.5: High-Definition Temple Photograph -->
+  <div class="hero-layer hero-layer-temple" data-speed="0.4" style="z-index: 1.5; opacity: 1; align-items: flex-start;">
+    <img src="assets/temple_8k.png" alt="Temple" style="width: 100vw; height: 160vh; object-fit: cover; object-position: center top; filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.4)); transform: translateY(0);">
   </div>
 
   <!-- Layer 2: Midground Decor (Corners and Hanging Bells) -->
@@ -1014,11 +1124,11 @@ input[type=number] {
         <em style="font-family:'Philosopher',serif;font-size:0.9rem;color:var(--text-mid)">proudly announce the wedding of their daughter</em>
       </div>
       <br>
-      <div style="font-family:'Cinzel Decorative',cursive;font-size:1.4rem;color:var(--deep-red)">Priya Ramachandran</div>
+      <div style="font-family:var(--font-names);font-size:3.5rem;color:var(--deep-red);line-height:1.2;font-weight:400;">Priya Ramachandran</div>
       <br>
       <div style="font-family:'Philosopher',serif;font-style:italic;font-size:1.1rem;color:var(--text-mid)">with</div>
       <br>
-      <div style="font-family:'Cinzel Decorative',cursive;font-size:1.4rem;color:var(--deep-red)">Arjun Venkataraman</div>
+      <div style="font-family:var(--font-names);font-size:3.5rem;color:var(--deep-red);line-height:1.2;font-weight:400;">Arjun Venkataraman</div>
       <br>
       <div class="parent-group">
         <em style="font-family:'Philosopher',serif;font-size:0.9rem;color:var(--text-mid)">beloved son of</em><br>
@@ -1314,6 +1424,15 @@ input[type=number] {
   </div>
 </section>
 
+<!-- ========================= END PARALLAX ========================= -->
+<section id="thank-you-parallax">
+  <div class="ty-bg" style="background-image: url('assets/couple_hands_new.png');"></div>
+  <div class="ty-content reveal">
+    <h2>Thank You</h2>
+    <p>We are Expecting Your Presence</p>
+  </div>
+</section>
+
 <!-- =========================== 8. FOOTER =========================== -->
 <footer id="footer">
   <!-- Temple silhouette SVG -->
@@ -1352,6 +1471,47 @@ input[type=number] {
 </footer>
 
 <script>
+/* ===== DOOR CONCEPT ===== */
+const doorCover = document.getElementById('door-cover');
+const openDoorBtn = document.getElementById('open-door-btn');
+const doorWelcomeText = document.getElementById('door-welcome-text');
+
+if (openDoorBtn) {
+    openDoorBtn.addEventListener('click', () => {
+        openDoorBtn.classList.add('fade-out');
+        if(doorWelcomeText) doorWelcomeText.classList.add('fade-out');
+        doorCover.classList.add('open');
+        
+        // Try starting YouTube player if it's ready
+        if (typeof player !== 'undefined' && isYtReady) {
+            player.playVideo();
+            const musicBtn = document.getElementById('music-btn');
+            if (musicBtn) {
+                musicBtn.classList.add('playing');
+                musicBtn.textContent = '⏸';
+            }
+        }
+        
+        // Add glowing light reveal effect
+        const flash = document.createElement('div');
+        flash.style.position = 'fixed';
+        flash.style.top = '0'; flash.style.left = '0'; flash.style.width = '100vw'; flash.style.height = '100vh';
+        flash.style.background = 'radial-gradient(circle at center, rgba(212,175,55,0.4) 0%, transparent 60%)';
+        flash.style.zIndex = '9998';
+        flash.style.opacity = '0';
+        flash.style.transition = 'opacity 1.5s ease';
+        document.body.appendChild(flash);
+        
+        setTimeout(() => { flash.style.opacity = '1'; }, 100);
+        setTimeout(() => { flash.style.opacity = '0'; }, 1000);
+        setTimeout(() => { document.body.removeChild(flash); }, 2500);
+        
+        setTimeout(() => {
+            doorCover.classList.add('hide');
+        }, 2000);
+    });
+}
+
 /* ===== SCROLL PROGRESS BAR ===== */
 window.addEventListener('scroll', () => {
     const scroll = window.scrollY;
