@@ -156,7 +156,7 @@ button { cursor: pointer; border: none; background: none; }
 #door-cover {
   position: fixed; inset: 0; z-index: 10000;
   display: flex; align-items: center; justify-content: center;
-  overflow: hidden;
+  overflow: hidden; width: 100vw; height: 100vh; height: 100dvh;
   transition: opacity 1.5s ease 0.5s, visibility 1.5s ease 0.5s;
 }
 .door-left, .door-right {
@@ -193,9 +193,17 @@ button { cursor: pointer; border: none; background: none; }
 
 .door-enter-content {
   position: relative; z-index: 10001;
-  display: flex; flex-direction: column; align-items: center;
-  gap: 2rem; transition: opacity 0.8s ease;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 2.2rem; transition: opacity 0.8s ease;
   text-align: center; padding: 2rem;
+  width: 100%; max-width: 1200px; height: 100%;
+}
+.door-enter-content::before {
+  content: ''; position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150vw; height: 150vw;
+  background: radial-gradient(circle, rgba(212,175,55,0.08) 0%, transparent 60%);
+  pointer-events: none; z-index: -1;
 }
 .door-welcome-text {
   font-family: var(--font-names);
@@ -349,11 +357,12 @@ button { cursor: pointer; border: none; background: none; }
 }
 .hero-names {
   font-family: var(--font-names);
-  font-size: clamp(4rem, 13vw, 9rem);
-  white-space: nowrap;
-  line-height: 1.1;
+  font-size: clamp(3.2rem, 11vw, 9rem);
+  white-space: normal;
+  line-height: 1.15;
   font-weight: 400;
   letter-spacing: 0.02em;
+  padding: 0 1.5rem;
   background: linear-gradient(to bottom, var(--gold-pale) 0%, var(--gold-leaf) 50%, var(--gold-antique) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -451,7 +460,7 @@ button { cursor: pointer; border: none; background: none; }
   pointer-events: none;
 }
 .invite-card {
-  max-width: 800px; margin: 0 auto;
+  max-width: 900px; margin: 0 auto;
   background: var(--gold-pale);
   border: 6px solid var(--gold-antique);
   outline: 2px solid rgba(212,175,55,0.5);
@@ -794,11 +803,11 @@ input[type=number] { -moz-appearance: textfield; appearance: textfield; }
   .hero-names    { font-size: clamp(2.8rem, 12vw, 4.5rem); white-space: normal; line-height: 1.2; padding: 0 10px; }
   .hero-names .ampersand { display: block; margin: 0.2em auto; font-size: 0.5em; }
   .couple-img    { max-height: 50vh; }
-  .hero-date-box { padding: 1.1rem 1.5rem; width: 90vw; }
+  .hero-date-box { padding: 1.1rem 1.5rem; width: min(90vw, 500px); }
   .hero-date-main{ font-size: 1.25rem; letter-spacing: 0.15em; }
-  .door-welcome-text { font-size: clamp(3rem, 12vw, 4.5rem); text-align: center; padding: 0 1rem; }
+  .door-welcome-text { font-size: clamp(3rem, 12vw, 4.5rem); text-align: center; padding: 0 1rem; width: 100%; }
   #open-door-btn { padding: 1.1rem 2.2rem; font-size: 0.9rem; letter-spacing: 0.25em; }
-  #music-btn { bottom: 1rem; left: 1rem; width: 44px; height: 44px; }
+  #music-btn { bottom: 1.5rem; left: 1.5rem; width: 44px; height: 44px; }
 }
 @media (max-width: 400px) {
   .details-grid { grid-template-columns: 1fr; }
