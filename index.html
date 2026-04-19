@@ -2,8 +2,16 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Priya &amp; Arjun — Wedding Invitation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Priya & Arjun — Wedding Invitation</title>
+  <meta name="description" content="Join us in celebrating the union of Priya and Arjun. A sacred South Indian wedding celebration.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌸</text></svg>">
+  
+  <!-- Social Meta tags -->
+  <meta property="og:title" content="Priya & Arjun Wedding Invitation">
+  <meta property="og:description" content="August 24, 2026 — Chennai. Please join us for our special day.">
+  <meta property="og:image" content="./hero_couple.jpg">
+  <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;500;600;700&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Serif+Tamil:wght@400;600;700&family=Great+Vibes&family=Pinyon+Script&display=swap" rel="stylesheet">
@@ -27,6 +35,8 @@
   --gold:         #D4AF37;
   --deep-red:     #8B0000;
   --cream-dark:   #E5D9B6;
+  --glass-bg:     rgba(30, 0, 0, 0.65);
+  --glass-border: rgba(212, 175, 55, 0.35);
   --shadow-gold:  rgba(212,175,55,0.3);
   --shadow-ruby:  rgba(44,0,0,0.5);
   --section-bg:   #fffcf5;
@@ -67,13 +77,14 @@ button { cursor: pointer; border: none; background: none; }
    MUSIC BUTTON
    ============================================================ */
 #music-btn {
-  position: fixed; bottom: 2rem; right: 2rem; z-index: 1000;
-  width: 54px; height: 54px; border-radius: 50%;
-  background: linear-gradient(135deg, var(--deep-ruby), var(--royal-red));
-  border: 2px solid var(--gold-antique);
-  color: var(--gold-pale); font-size: 1.3rem;
+  position: fixed; bottom: 1.5rem; left: 1.5rem; z-index: 1000;
+  width: 48px; height: 48px; border-radius: 50%;
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  border: 1px solid var(--glass-border);
+  color: var(--gold-pale); font-size: 1.1rem;
   display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 4px 20px var(--shadow-ruby);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 #music-btn:hover { transform: scale(1.12) rotate(15deg); box-shadow: 0 6px 28px var(--shadow-gold); }
@@ -87,9 +98,9 @@ button { cursor: pointer; border: none; background: none; }
 /* ============================================================
    REVEAL ANIMATIONS
    ============================================================ */
-.reveal        { opacity: 0; transform: translateY(40px);   transition: opacity 0.85s ease, transform 0.85s ease; }
-.reveal-left   { opacity: 0; transform: translateX(-50px);  transition: opacity 0.85s ease, transform 0.85s ease; }
-.reveal-right  { opacity: 0; transform: translateX(50px);   transition: opacity 0.85s ease, transform 0.85s ease; }
+.reveal        { opacity: 0; transform: translateY(20px);   transition: opacity 1s ease, transform 1s ease; }
+.reveal-left   { opacity: 0; transform: translateX(-30px);  transition: opacity 1s ease, transform 1s ease; }
+.reveal-right  { opacity: 0; transform: translateX(30px);   transition: opacity 1s ease, transform 1s ease; }
 .reveal.visible, .reveal-left.visible, .reveal-right.visible {
   opacity: 1; transform: translate(0);
 }
@@ -208,27 +219,18 @@ button { cursor: pointer; border: none; background: none; }
   padding: 1.2rem 4rem; font-size: 1rem;
   background: rgba(20,0,0,0.7);
   color: var(--gold-bright);
-  border: 1px solid rgba(212,175,55,0.65);
+  border: 1px solid var(--gold-bright);
   font-family: var(--font-subheading); text-transform: uppercase;
-  letter-spacing: 0.4em; font-weight: 300;
+  letter-spacing: 0.4em; font-weight: 500;
   transition: all 0.5s ease;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.6), inset 0 0 20px rgba(212,175,55,0.15);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6), 0 0 15px rgba(212,175,55,0.3);
   -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
-  border-radius: 3px;
-  animation: etherealPulse 3s infinite alternate;
-}
-#open-door-btn:hover {
-  background: rgba(40,0,0,0.85);
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 15px 40px rgba(0,0,0,0.8), inset 0 0 30px rgba(212,175,55,0.3);
-  color: #fff; border-color: var(--gold-bright); letter-spacing: 0.45em;
-}
-#open-door-btn.fade-out, .door-welcome-text.fade-out, .door-tagline.fade-out {
-  opacity: 0; transform: scale(0.85); pointer-events: none;
+  border-radius: 4px;
+  animation: etherealPulse 2s infinite alternate;
 }
 @keyframes etherealPulse {
-  from { box-shadow: 0 10px 30px rgba(0,0,0,0.6), inset 0 0 20px rgba(212,175,55,0.12), 0 0 0   rgba(212,175,55,0); }
-  to   { box-shadow: 0 10px 30px rgba(0,0,0,0.6), inset 0 0 20px rgba(212,175,55,0.25), 0 0 18px rgba(212,175,55,0.35); }
+  from { box-shadow: 0 10px 30px rgba(0,0,0,0.6), 0 0 10px rgba(212,175,55,0.2); }
+  to   { box-shadow: 0 10px 30px rgba(0,0,0,0.6), 0 0 25px rgba(212,175,55,0.5); transform: scale(1.02); }
 }
 
 /* ============================================================
@@ -264,13 +266,14 @@ button { cursor: pointer; border: none; background: none; }
 .hero-layer-2 { z-index: 4; }
 
 .main-img {
-  width: 100vw;
-  max-width: 900px;
-  height: auto;
-  max-height: 72vh;
+  width: auto;
+  min-width: 100%;
+  max-width: none;
+  height: clamp(50vh, 70vh, 85vh);
   object-fit: contain;
   object-position: bottom center;
   will-change: transform;
+  filter: drop-shadow(0 15px 35px rgba(0,0,0,0.5));
 }
 
 
@@ -601,12 +604,13 @@ button { cursor: pointer; border: none; background: none; }
 
 .rsvp-container { max-width: 600px; margin: 4rem auto 0; }
 .rsvp-form {
-  background: rgba(255,255,255,0.03);
-  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
-  border: 1px solid rgba(212,175,55,0.22);
-  padding: clamp(2.5rem, 6vw, 4rem);
-  display: flex; flex-direction: column; gap: 1.6rem;
-  box-shadow: 0 20px 55px rgba(0,0,0,0.35);
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  padding: clamp(2rem, 6vw, 4rem);
+  display: flex; flex-direction: column; gap: 1.8rem;
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+  border-radius: 8px;
 }
 .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
 .form-group label {
@@ -617,17 +621,17 @@ button { cursor: pointer; border: none; background: none; }
 .form-group input,
 .form-group select {
   width: 100%;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(212,175,55,0.22);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(212,175,55,0.3);
   color: var(--ivory-warm);
-  padding: 1rem 1.1rem;
-  font-family: var(--font-body); font-size: 1rem;
+  padding: 1.1rem 1.2rem;
+  font-family: var(--font-body); font-size: 1.05rem;
   transition: all 0.3s ease;
   outline: none;
   -webkit-appearance: none; appearance: none;
-  border-radius: 0;
+  border-radius: 4px;
 }
-.form-group input::placeholder { color: rgba(243,229,171,0.4); }
+.form-group input::placeholder { color: rgba(243,229,171,0.5); }
 .form-group select option       { background: #1a0000; color: var(--ivory-warm); }
 .form-group input:focus,
 .form-group select:focus {
@@ -653,17 +657,17 @@ input[type=number] { -moz-appearance: textfield; appearance: textfield; }
 }
 .rsvp-btn:hover {
   background: linear-gradient(135deg, var(--vermilion), var(--deep-red));
-  box-shadow: 0 4px 22px var(--shadow-gold);
+  box-shadow: 0 0 25px var(--gold-leaf);
   transform: translateY(-2px);
 }
 .whatsapp-btn {
-  display: flex; align-items: center; justify-content: center; gap: 0.7rem;
+  display: flex; align-items: center; justify-content: center; gap: 0.8rem;
   background: #25D366; color: #fff;
-  font-family: var(--font-subheading); font-size: 0.85rem;
-  letter-spacing: 0.1em; text-transform: uppercase;
-  padding: 0.95rem 1.5rem; text-decoration: none;
-  border-radius: 2px; transition: all 0.3s; margin-top: 0.8rem;
-  width: 100%;
+  font-family: var(--font-subheading); font-size: 0.9rem;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 1.1rem 1.5rem; text-decoration: none;
+  border-radius: 4px; transition: all 0.3s; margin-top: 0.8rem;
+  width: 100%; font-weight: 600;
 }
 .whatsapp-btn:hover { background: #128C7E; transform: translateY(-2px); box-shadow: 0 4px 22px rgba(37,211,102,0.3); }
 .whatsapp-btn svg   { width: 22px; height: 22px; fill: #fff; flex-shrink: 0; }
@@ -790,13 +794,15 @@ input[type=number] { -moz-appearance: textfield; appearance: textfield; }
   .hero-names    { font-size: clamp(2.8rem, 12vw, 4.5rem); white-space: normal; line-height: 1.2; padding: 0 10px; }
   .hero-names .ampersand { display: block; margin: 0.2em auto; font-size: 0.5em; }
   .couple-img    { max-height: 50vh; }
-  .hero-date-box { padding: 1rem 1.5rem; width: 85vw; }
-  .hero-date-main{ font-size: 1.3rem; letter-spacing: 0.1em; }
-  .door-welcome-text { font-size: clamp(2.8rem, 11vw, 4.5rem); text-align: center; padding: 0 1rem; }
-  #open-door-btn { padding: 1rem 2rem; font-size: 0.88rem; letter-spacing: 0.22em; }
+  .hero-date-box { padding: 1.1rem 1.5rem; width: 90vw; }
+  .hero-date-main{ font-size: 1.25rem; letter-spacing: 0.15em; }
+  .door-welcome-text { font-size: clamp(3rem, 12vw, 4.5rem); text-align: center; padding: 0 1rem; }
+  #open-door-btn { padding: 1.1rem 2.2rem; font-size: 0.9rem; letter-spacing: 0.25em; }
+  #music-btn { bottom: 1rem; left: 1rem; width: 44px; height: 44px; }
 }
 @media (max-width: 400px) {
   .details-grid { grid-template-columns: 1fr; }
+  .rsvp-form { padding: 1.5rem; }
 }
 </style>
 </head>
@@ -1313,19 +1319,21 @@ function updateParallax() {
 
   heroLayers.forEach(layer => {
     let speed = parseFloat(layer.getAttribute('data-speed')) || 0;
-    if (isMobile) speed *= 0.55;
-
+    
+    // Smooth scaling factor for different speeds
     let yPos = -(scrollY * speed);
     let scale = 1;
 
-    // Harmonized offsets for text
+    // Special handling for the main content layer
     if (layer.classList.contains('hero-layer-3')) {
-      yPos = scrollY * 0.18; 
-      scale = 1 + (scrollY / vh) * 0.05;
+      yPos = scrollY * 0.25; 
+      scale = 1 + (scrollY / vh) * 0.1;
     }
+    
+    // Extra boost for foreground layers
+    if (speed > 1) yPos *= 1.2;
 
     layer.style.transform = `translate3d(0, ${yPos}px, 0) scale(${scale})`;
-    // Store values for mouse parallax compatibility
     layer.dataset.scrollYPos = yPos;
     layer.dataset.scale = scale;
   });
@@ -1484,6 +1492,15 @@ if (musicBtn) {
     }
   });
 }
+
+// Fade door entrance elements on click
+document.getElementById('open-door-btn').addEventListener('click', function() {
+  this.classList.add('fade-out');
+  const d1 = document.getElementById('door-welcome-text');
+  const d2 = document.getElementById('door-tagline');
+  if(d1) d1.style.opacity = '0';
+  if(d2) d2.style.opacity = '0';
+});
 </script>
 </body>
 </html>
